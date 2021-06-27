@@ -16,6 +16,7 @@ public class TripPricerController {
     @Autowired
     TripPricerService tripPricerService;
 
+
     @GetMapping("/getPrice")
     public List<Provider> getPriceServer(@RequestParam String apiKey, User user) {
         return tripPricerService.getPrice(apiKey, user);
