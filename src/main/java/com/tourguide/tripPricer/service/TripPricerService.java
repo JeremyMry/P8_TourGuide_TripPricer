@@ -3,6 +3,8 @@ package com.tourguide.tripPricer.service;
 import com.tourguide.tripPricer.models.Provider;
 import com.tourguide.tripPricer.models.User;
 import com.tourguide.tripPricer.models.UserReward;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -25,19 +27,18 @@ public class TripPricerService {
             double childrenDiscount = (double)(user.getUserPreferences().getNumberOfChildren() / 3);
             double price = (double)(multiple * user.getUserPreferences().getNumberOfAdults()) + (double)multiple * childrenDiscount * (double)user.getUserPreferences().getTripDuration() + 0.99D - (double)cumulativeRewardPoints;
             if (price < 0.0D) {
+                System.out.println(price);
                 price = 0.0D;
             }
-
             String provider = "";
 
             do {
                 provider = this.getProviderName(apiKey, user.getUserPreferences().getNumberOfAdults());
+                System.out.println(provider);
             } while(providersUsed.contains(provider));
 
-            providersUsed.add(provider);
             providers.add(new Provider(user.getUserId(), provider, price));
         }
-
         return providers;
     }
 
