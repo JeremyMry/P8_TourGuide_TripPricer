@@ -1,4 +1,5 @@
-FROM openjdk:8
-COPY ./out/production/HelloWorld/ /tmp
-WORKDIR /tmp
-ENTRYPOINT ["java","P8_TourGuide_TripPricer"]
+FROM openjdk:11
+RUN mkdir /app
+COPY ./out/artifacts/tripPricer_jar/tripPricer.jar /app/tripPricer.jar
+WORKDIR /app
+CMD "java" "-jar" "tripPricer.jar"
