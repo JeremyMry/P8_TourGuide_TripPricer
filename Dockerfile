@@ -1,5 +1,5 @@
 FROM openjdk:11
-WORKDIR /out/artifacts/tripPricer_jar
-ADD tripPricer.jar tripPricer.jar
+WORKDIR /target
+ADD tripPricer-0.0.1-SNAPSHOT.jar tripPricer-0.0.1-SNAPSHOT.jar
 EXPOSE 8082
-CMD java -jar tripPricer.jar
+CMD java -jar tripPricer-0.0.1-SNAPSHOT.jar
