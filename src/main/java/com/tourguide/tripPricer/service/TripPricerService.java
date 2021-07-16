@@ -3,8 +3,6 @@ package com.tourguide.tripPricer.service;
 import com.tourguide.tripPricer.models.Provider;
 import com.tourguide.tripPricer.models.User;
 import com.tourguide.tripPricer.models.UserReward;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
